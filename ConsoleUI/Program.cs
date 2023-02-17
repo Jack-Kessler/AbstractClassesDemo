@@ -11,10 +11,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             /*
-             * Todo follow all comments!! 
-             */
-
-            #region Vehicles
+            * Todo follow all comments!! 
+            */
 
             /*
              * Create an abstract class called Vehicle
@@ -33,6 +31,21 @@ namespace ConsoleUI
 
             // Create a list of Vehicle called vehicles
 
+            List<Vehicle> myVehcilelist = new List<Vehicle>();
+
+            Car myCar = new Car() { Year = 1999, Make = "Ford", Model = "Escape", HasTrunk = true };
+
+            Motorcycle myMotorcycle = new Motorcycle() { Year = 2010, Make = "Harley", Model = "1", HasSideCart = false };
+
+            Vehicle myVehicle1 = new Car() { Year = 2018, Make = "Toyota", Model = "Camry", HasTrunk = true };
+
+            Vehicle myVehicle2 = new Car() {Year = 2022, Make = "Tesla", Model = "3", HasTrunk= true };
+
+            myVehcilelist.Add(myCar);
+            myVehcilelist.Add(myMotorcycle);
+            myVehcilelist.Add(myVehicle1);
+            myVehcilelist.Add(myVehicle2);
+
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
@@ -43,11 +56,21 @@ namespace ConsoleUI
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
+            int counter = 1;
+            foreach (Vehicle vehicle in myVehcilelist) 
+            {
+                Console.WriteLine($"Vehicle {counter}");
+                Console.WriteLine($"Year: {vehicle.Year}");
+                Console.WriteLine($"Make: {vehicle.Make}");
+                Console.WriteLine($"Model: {vehicle.Model}");
+                vehicle.DriveAbstract();
+                vehicle.DriveVirtual();
+                Console.WriteLine();
+                counter++;
+            }
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
-            Console.ReadLine();
         }
     }
 }
